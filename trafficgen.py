@@ -6,27 +6,29 @@ import time
 import threading
 import os
 import subprocess
+import random
+import numpy
 
 
 import trafficstats
 
 
 url = sys.argv[1]
-rps = sys.argv[2]
-jitter = sys.argv[3]
+rps = int(sys.argv[2])
+jitter = float(sys.argv[3])
 
-#lower = rps * (1.0 - jitter)
-#upper = rps * (1.0 + jitter)
+lower = rps * (1.0 - jitter)
+upper = rps * (1.0 + jitter)
 
-#actual = random.randint/uniform(lower,upper)
+actual = random.randint(lower,upper)
+
 
 bashCommand = "curl -G " + url
 
 bashCommand = bashCommand.split(" ")
 
-
-interval = 1/rps
 while True:
-	startTime = time()
-	process = subprocess.call(bashCommand)
-	endTime = 
+	start = time.time()
+	interval = 1
+	for i in range(actual):
+		process = subprocess.call(bashCommand)
