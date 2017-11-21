@@ -22,13 +22,12 @@ upper = rps * (1.0 + jitter)
 
 actual = random.randint(lower,upper)
 
+invoke = "curl -G " + url
 
-bashCommand = "curl -G " + url
-
-bashCommand = bashCommand.split(" ")
+invoke = invoke.split(" ")
 
 while True:
 	start = time.time()
 	interval = 1
 	for i in range(actual):
-		process = subprocess.call(bashCommand)
+		process = subprocess.call(invoke)
