@@ -17,10 +17,10 @@ if os.path.isfile(url):
 else:
     results = open("output.tsv", "w")
 try:
+    url += '/stats'
     while True:
-        response = urllib2.urlopen(url + "/stats")
+        response = urllib2.urlopen(url)
         html = response.read()
-        print html
         line = html.split("\n")
         del line[-1]
         for stuff in line:
@@ -30,6 +30,7 @@ try:
         sleep(interval)
 except KeyboardInterrupt:
     print("Ending program...")
+    results.write('\n')
     results.close()
     sys.exit()
 
