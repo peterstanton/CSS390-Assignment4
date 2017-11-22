@@ -1,5 +1,6 @@
 import sys
 import time
+from time import sleep
 import subprocess
 import random
 
@@ -21,12 +22,13 @@ while True:
     interval = 1
     for i in range(actual):
         chance = random.randint(0, 100)
-        if chance in range(0, 5):
+        if chance in range(0, 4):
             invoke += 'arglebargle'
             process = subprocess.call(invoke)
-        elif chance in range(6, 10):
+        elif chance in range(5, 10):
             invoke += '/fail'
             process = subprocess.call(invoke)
         else:
             process = subprocess.call(invoke)
-
+    end = time.time()
+    sleep(1-(start-end))
