@@ -5,9 +5,9 @@ import os.path
 
 #Default interval between stats collection is 10 seconds.
 interval = 10
-for i in sys.argv:
-    if sys.argv[i] == '--interval':
-        interval = sys.argv[i+1]
+for num, val in enumerate(sys.argv, start=1): 
+    if val == '--interval':
+        interval = val
         break
 
 url = sys.argv[1]
@@ -18,6 +18,7 @@ else:
     results = open("output.tsv", "w")
 try:
     url += '/stats'
+    count = 1
     while True:
         response = urllib2.urlopen(url)
         html = response.read()
@@ -27,6 +28,8 @@ try:
             digit = stuff.split(":")
             results.write(digit[1].strip() + "\t")
         results.write("\n")
+	print('results written for request ' + str(count))
+	count += 1
         sleep(interval)
 except KeyboardInterrupt:
     print("Ending program...")
