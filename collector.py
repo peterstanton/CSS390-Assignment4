@@ -4,10 +4,12 @@ from time import sleep
 import os.path
 
 #Default interval between stats collection is 10 seconds.
-interval = 10
+interval = 10.0
 for num, val in enumerate(sys.argv, start=1): 
+    if num == len(sys.argv): 
+        break;
     if val == '--interval':
-        interval = val
+        interval = float(sys.argv[num])
         break
 
 url = sys.argv[1]
@@ -17,13 +19,13 @@ if os.path.isfile(url):
 else:
     results = open("output.tsv", "w")
 try:
-    url += '/stats'
+    address += '/stats'
     count = 1
     while True:
-        response = urllib2.urlopen(url)
+        response = urllib2.urlopen(address)
         html = response.read()
         line = html.split("\n")
-        del line[-1]
+        del line[len(line)-1]
         for stuff in line:
             digit = stuff.split(":")
             results.write(digit[1].strip() + "\t")
