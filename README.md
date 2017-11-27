@@ -9,12 +9,14 @@ This program is written for Python 2.7, and gnuplot 4.6 patchlevel 6.
 
 ## Usage
 
-1. To use this program, first invoke the Timeserver program on local machine.
+1. To use this program, first invoke the Timeserver program on local machine. 
 
-2. Then invoke Trafficgen to simulate a load on that url.
+2. Then invoke Trafficgen to simulate a load on that url. Parameters are the url of the server, requests per second as 
+an integer, and jitter as a floating point.
 
 3. Next invoke Collector on the server to periodically sample the server statistics. By default, it samples every 10
-seconds, but the --interval flag can be used to set the interval manually.
+seconds, but the --interval flag can be used to set the interval manually. The arguments are the URL, and optionally the
+interval flag with a manual interval integer.
 
 4. When enough data has been gathered to your satisfaction, invoke the plotting script with ./plot.sh to generate
 a plot of the data.
@@ -23,6 +25,8 @@ a plot of the data.
 
 1. If an output.tsv already exists from a previous run, in invoking Collector again, the user most likely wishes to add
 to previously collected data, and the log should be appended to, not overwritten.
+
+2. People will only use proper input for these files.
 
 
 ## Known Bugs
