@@ -8,8 +8,15 @@ url = sys.argv[1]
 rps = int(sys.argv[2])
 jitter = float(sys.argv[3])
 
-lower = rps * (1.0 - jitter)
-upper = rps * (1.0 + jitter)
+if jitter < 0:
+    jitter = 0.1
+elif jitter > 1:
+    jitter = 1.0
+
+lower = int(rps * (1.0 - jitter))
+upper = int(rps * (1.0 + jitter))
+print lower
+print upper
 
 invoke = "curl -G " + url
 
@@ -22,6 +29,7 @@ while True:
     start = time.time()
     interval = 1
     for i in range(actual):
+	print str(i)
         invoke[2] = permGood
         chance = random.randint(0, 100)
         if chance in range(0, 5):
@@ -33,4 +41,7 @@ while True:
         else:
             process = subprocess.call(invoke)
     end = time.time()
-    sleep(1-(start-end))
+    if(1-(start-end)) > 0:
+    	sleep(1-(start-end))
+    else:
+	continue
