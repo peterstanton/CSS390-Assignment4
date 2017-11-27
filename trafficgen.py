@@ -23,20 +23,15 @@ while True:
     start = time.time()
     interval = 1
     for i in range(actual):
-	invoke[2] = permGood
+        invoke[2] = permGood
         chance = random.randint(0, 100)
-	print("Result is: " + str(chance))
         if chance in range(0, 5):
-            #invoke[2] = invoke[2][:12] + "arglebargle" + invoke[2][12:]
-	    invoke[2]  = invoke[2] + '/arglebargle'
-            print("Bad URL: " + str(invoke))
+            invoke[2] = invoke[2] + '/arglebargle'
             process = subprocess.call(invoke)
         elif chance in range(6, 10):
             invoke[2] += "/fail"
-	    print("Server fail: " + str(invoke))
             process = subprocess.call(invoke)
         else:
-	    print("Correct: " + str(invoke))
             process = subprocess.call(invoke)
     end = time.time()
     sleep(1-(start-end))

@@ -3,17 +3,17 @@ import sys
 from time import sleep
 import os.path
 
-#Default interval between stats collection is 10 seconds.
+# Default interval between stats collection is 10 seconds.
 interval = 10.0
-for num, val in enumerate(sys.argv, start=1): 
-    if num == len(sys.argv): 
-        break;
+for num, val in enumerate(sys.argv, start=1):
+    if num == len(sys.argv):
+        break
     if val == '--interval':
         interval = float(sys.argv[num])
         break
 
 url = sys.argv[1]
-#I assume if the file already exists, we want to continue building a log file.
+# I assume if the file already exists, we want to continue building a log file.
 if os.path.isfile(url):
     results = open('output.txv', 'a')
 else:
@@ -25,17 +25,16 @@ try:
         response = urllib2.urlopen(address)
         html = response.read()
         line = html.split("\n")
-        del line[len(line)-1]
+        del line[len(line) - 1]
         for stuff in line:
             digit = stuff.split(":")
             results.write(digit[1].strip() + "\t")
         results.write("\n")
-	print('results written for request ' + str(count))
-	count += 1
+        print('results written for request ' + str(count))
+        count += 1
         sleep(interval)
 except KeyboardInterrupt:
     print("Ending program...")
     results.write('\n')
     results.close()
     sys.exit()
-

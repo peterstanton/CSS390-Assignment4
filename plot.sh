@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 gnuplot <<- EOF
 	set title "Time server status over time"
 	set xlabel "Unix Time"
