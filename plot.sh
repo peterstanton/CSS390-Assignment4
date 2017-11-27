@@ -6,8 +6,8 @@ gnuplot <<- EOF
 	set autoscale
 	set term png
 	set output "result.png"
-	plot 'output.tsv' using 1:2 title '200s' with lines,\
-	'output.tsv' using 1:3 title '400s' with lines,\
-	'output.tsv' using 1:4 title '500s' with lines
+	plot 'output.tsv' using 1:2 title '500s' with lines,\
+	'output.tsv' using 1:3 title '200s' with lines,\
+	'output.tsv' using 1:4 title '404s' with lines
 EOF
 

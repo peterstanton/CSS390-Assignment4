@@ -12,10 +12,10 @@ for num, val in enumerate(sys.argv, start=1):
         interval = float(sys.argv[num])
         break
 
-url = sys.argv[1]
+address = sys.argv[1]
 # I assume if the file already exists, we want to continue building a log file.
-if os.path.isfile(url):
-    results = open('output.txv', 'a')
+if os.path.isfile('output.tsv'):
+    results = open('output.tsv', 'a')
 else:
     results = open("output.tsv", "w")
 try:
@@ -28,6 +28,7 @@ try:
         del line[len(line) - 1]
         for stuff in line:
             digit = stuff.split(":")
+	    print(digit)
             results.write(digit[1].strip() + "\t")
         results.write("\n")
         print('results written for request ' + str(count))
