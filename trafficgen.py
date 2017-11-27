@@ -29,7 +29,6 @@ while True:
     start = time.time()
     interval = 1
     for i in range(actual):
-	print str(i)
         invoke[2] = permGood
         chance = random.randint(0, 100)
         if chance in range(0, 5):
@@ -42,6 +41,6 @@ while True:
             process = subprocess.call(invoke)
     end = time.time()
     if(1-(start-end)) > 0:
-    	sleep(1-(start-end))
+        sleep(1-(start-end))
     else:
-	continue
+        continue
