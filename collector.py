@@ -28,8 +28,9 @@ try:
         del line[len(line) - 1]
         for stuff in line:
             digit = stuff.split(":")
-	    print(digit)
-            results.write(digit[1].strip() + "\t")
+	    digit[1].strip()
+	    #print(digit)
+            results.write(digit[1] + "\t")
         results.write("\n")
         print('results written for request ' + str(count))
         count += 1
