@@ -35,6 +35,9 @@ properly.
 * Sometimes after completing a high number of requests per second, it improperly sleeps when it should immediately
 continue.
 
+* Because of limitations with the implementation of random.randint, I have to force the results of the jitter
+computation to integers because the random number function, random.randrange() requires integer parameters.
+
 ## Credits
 
 TODO: Write credits

@@ -11,8 +11,6 @@ jitter = float(sys.argv[3])
 lower = rps * (1.0 - jitter)
 upper = rps * (1.0 + jitter)
 
-actual = random.randint(lower, upper)
-
 invoke = "curl -G " + url
 
 invoke = invoke.split(" ")
@@ -20,6 +18,7 @@ invoke = invoke.split(" ")
 permGood = invoke[2]
 
 while True:
+    actual = random.randint(lower, upper)
     start = time.time()
     interval = 1
     for i in range(actual):
