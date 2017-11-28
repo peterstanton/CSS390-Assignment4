@@ -32,8 +32,7 @@ while True:
         except urllib2.HTTPError:
             continue
     end = time.time()
-    print 1-(start-end)
-    if(1-(start-end)) > 0:
-        sleep(1-(start-end))
+    if(1-(end-start)) > 0:
+        sleep(1-(end-start))
     else:
         continue
