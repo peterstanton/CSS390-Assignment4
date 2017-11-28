@@ -19,7 +19,7 @@ address = sys.argv[1]
 if os.path.isfile(outpath):
     results = open(outpath, 'a')
 else:
-    results = open(outpath, "w")
+    results = open(outpath, 'w')
 address += '/stats'
 count = 1
 while True:
