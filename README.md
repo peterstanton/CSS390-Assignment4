@@ -64,3 +64,17 @@ pointing out that I need to be deleting whitespace that was throwing off my pars
 * https://docs.python.org/2/library/urllib2.html
 
 * https://stackoverflow.com/questions/1185524/how-do-i-trim-whitespace
+
+* https://stackoverflow.com/questions/9282967/how-to-open-a-file-using-the-open-with-statement
+
+* https://stackoverflow.com/questions/46270638/read-a-file-starting-from-the-second-line-in-python
+
+* https://stackoverflow.com/questions/17373118/read-previous-line-in-a-file-python
+
+* https://stackoverflow.com/questions/9578580/skip-first-couple-of-lines-while-reading-lines-in-python-file
+
+* http://book.pythontips.com/en/latest/enumerate.html
+
+* https://stackoverflow.com/questions/2081836/reading-specific-lines-only-python
+
+
