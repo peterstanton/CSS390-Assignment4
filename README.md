@@ -58,3 +58,5 @@ pointing out that I need to be deleting whitespace that was throwing off my pars
 * http://lowrank.net/gnuplot/datafile2-e.html
 
 * http://gnuplot.sourceforge.net/demo/simple.html
+
+* https://stackoverflow.com/questions/38722105/format-strings-vs-concatenation
