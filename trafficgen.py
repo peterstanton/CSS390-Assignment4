@@ -3,6 +3,7 @@ import time
 from time import sleep
 import subprocess
 import random
+import urllib2
 
 url = sys.argv[1]
 rps = int(sys.argv[2])
@@ -15,29 +16,23 @@ elif jitter > 1:
 
 lower = int(rps * (1.0 - jitter))
 upper = int(rps * (1.0 + jitter))
-
-invoke = "curl -G " + url
-
-invoke = invoke.split(" ")
-
-permGood = invoke[2]
-
 while True:
     actual = random.randint(lower, upper)
     start = time.time()
     interval = 1
     for i in range(actual):
-        invoke[2] = permGood
         chance = random.randint(0, 100)
-        if chance in range(0, 5):
-            invoke[2] = invoke[2] + '/arglebargle'
-            process = subprocess.call(invoke)
-        elif chance in range(6, 10):
-            invoke[2] += "/fail"
-            process = subprocess.call(invoke)
-        else:
-            process = subprocess.call(invoke)
+        try:
+            if chance in range(0, 5):
+                urllib2.urlopen(url + '/arglebargle')
+            elif chance in range(6, 10):
+                urllib2.urlopen(url + '/fail')
+            else:
+                urllib2.urlopen(url)
+        except urllib2.HTTPError:
+            continue
     end = time.time()
+    print 1-(start-end)
     if(1-(start-end)) > 0:
         sleep(1-(start-end))
     else:
