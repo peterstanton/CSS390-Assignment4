@@ -13,15 +13,11 @@ for num, val in enumerate(sys.argv, start=1):
     if val == '--path':
         outpath = str(sys.argv[num])
 
-
-address = sys.argv[1]
-# I assume if the file already exists, we want to continue building a log file.
+address = sys.argv[1] + '/stats'
 if os.path.isfile(outpath):
     results = open(outpath, 'a')
 else:
     results = open(outpath, 'w')
-address += '/stats'
-count = 1
 while True:
     response = urllib2.urlopen(address)
     html = response.read()
@@ -32,6 +28,5 @@ while True:
         result = digit[1].lstrip()
         results.write(result + "\t")  # grab the value, not the string saying what it is.
     results.write("\n")
-    count += 1
     sleep(interval)
 

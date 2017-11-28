@@ -62,3 +62,5 @@ pointing out that I need to be deleting whitespace that was throwing off my pars
 * https://stackoverflow.com/questions/38722105/format-strings-vs-concatenation
 
 * https://docs.python.org/2/library/urllib2.html
+
+* https://stackoverflow.com/questions/1185524/how-do-i-trim-whitespace
