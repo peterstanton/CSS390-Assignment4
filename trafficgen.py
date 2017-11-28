@@ -15,8 +15,6 @@ elif jitter > 1:
 
 lower = int(rps * (1.0 - jitter))
 upper = int(rps * (1.0 + jitter))
-print lower
-print upper
 
 invoke = "curl -G " + url
 
