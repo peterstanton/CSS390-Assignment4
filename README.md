@@ -23,12 +23,12 @@ a plot of the data.
 
 ## Assumptions
 
-1. If an output.tsv already exists from a previous run, in invoking Collector again, the user most likely wishes to add
+1. If an output file already exists from a previous run, in invoking Collector again, the user wishes to add
 to previously collected data, and the log should be appended to, not overwritten.
 
-2. People will only use proper input for these files.
+2. People will only use proper input to invoke the program.
 
-3. Despite how evil hardcoding file names is, you don't mention coding a --path flag to specify output names, and 
+3. Despite how evil hardcoding file names is, coding a --path flag to specify output names, and 
 writing to a file instead of standard output is required for collector.py. 
 
 ## Known Bugs
@@ -47,7 +47,7 @@ writing to a file instead of standard output is required for collector.py.
 
 * https://people.duke.edu/~hpgavin/gnuplot.html
 
-* Thanks to Cameron Padua for helping me figure out how to retrievve responses from the server for Collector.py using
+* Thanks to Cameron Padua for helping me figure out how to retrieve responses from the server for Collector.py using
 urllib2, pointing out that I need to be deleting trailing whitespace after splitting the html response, and mentioning
 the strip() method for extra whitespace.
 
