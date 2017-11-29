@@ -28,23 +28,18 @@ to previously collected data, and the log should be appended to, not overwritten
 
 2. People will only use proper input for these files.
 
+3. Despite how evil hardcoding file names is, you don't mention coding a --path flag to specify output names, and 
+writing to a file instead of standard output is required for collector.py. 
 
 ## Known Bugs
 
 * Because time on the x-axis is measured in Unix time, seconds since 1970, the x-axis labeling is very crowded.
 
-* The server occasionally becomes congested with requests with high rps, making it difficult to log all the reports
-properly.
+* 500 requests per second can take longer than 1 second on congested machines or VM's.
 
-* Sometimes after completing a high number of requests per second, it improperly sleeps when it should immediately
-continue.
-
-* Because of limitations with the implementation of random.randint, I have to force the results of the jitter
-computation to integers because the random number function, random.randrange() requires integer parameters.
+* I am sorry for making your eyes bleed.
 
 ## Credits
-
-TODO: Write credits
 
 * https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
@@ -52,8 +47,9 @@ TODO: Write credits
 
 * https://people.duke.edu/~hpgavin/gnuplot.html
 
-* Thanks to Cameron Padua for helping me figure out how to parse responses from the server for Collector.py, and
-pointing out that I need to be deleting whitespace that was throwing off my parsing.
+* Thanks to Cameron Padua for helping me figure out how to parse responses from the server for Collector.py using
+urllib2, pointing out that I need to be deleting trailing whitespace after splitting the html response, and mentioning
+the strip() method for extra whitespace.
 
 * http://lowrank.net/gnuplot/datafile2-e.html
 
