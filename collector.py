@@ -18,8 +18,7 @@ else:
     results = open(outpath, 'w')
 while True:
     response = urllib2.urlopen(address)
-    html = response.read()
-    line = html.split("\n")
+    line = response.read().split("\n")
     del line[len(line) - 1]
     for stuff in line:
         digit = stuff.split(":")
