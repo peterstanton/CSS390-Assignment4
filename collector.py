@@ -22,8 +22,8 @@ while True:
     del line[len(line) - 1]
     for stuff in line:
         digit = stuff.split(":")
-        result = digit[1].lstrip()
-        results.write(result + "\t")  # grab the value, not the string saying what it is.
+        toWrite = digit[1].lstrip()
+        results.write(toWrite + "\t")  # grab the value, not the string saying what it is.
     results.write("\n")
     sleep(interval)
 
