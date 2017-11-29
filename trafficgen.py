@@ -18,7 +18,6 @@ upper = int(rps * (1.0 + jitter))
 while True:
     actual = random.randint(lower, upper)
     start = time.time()
-    interval = 1
     for i in range(actual):
         chance = random.randint(0, 100)
         try:
