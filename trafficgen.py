@@ -21,9 +21,9 @@ while True:
     for i in range(actual):
         chance = random.randint(0, 100)
         try:
-            if chance in range(0, 5):
+            if chance in range(0, 6):
                 urllib2.urlopen(url + '/arglebargle')
-            elif chance in range(6, 10):
+            elif chance in range(6, 11):
                 urllib2.urlopen(url + '/fail')
             else:
                 urllib2.urlopen(url)
