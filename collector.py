@@ -10,8 +10,6 @@ for num, val in enumerate(sys.argv, start=1):
         break
     if val == '--interval':
         interval = float(sys.argv[num])
-    if val == '--path':
-        outpath = str(sys.argv[num])
 
 address = sys.argv[1] + '/stats'
 if os.path.isfile(outpath):

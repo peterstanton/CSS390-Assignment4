@@ -1,7 +1,6 @@
 import sys
 import time
 from time import sleep
-import subprocess
 import random
 import urllib2
 
