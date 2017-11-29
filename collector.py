@@ -21,9 +21,8 @@ while True:
     line = response.read().split("\n")
     del line[len(line) - 1]
     for stuff in line:
-        digit = stuff.split(":")
-        toWrite = digit[1].lstrip()
-        results.write(toWrite + "\t")  # grab the value, not the string saying what it is.
+        digit = stuff.split(": ")
+        results.write(digit[1] + "\t")  # grab the value, not the string saying what it is.
     results.write("\n")
     sleep(interval)
 

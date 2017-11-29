@@ -48,8 +48,7 @@ writing to a file instead of standard output is required for collector.py.
 * https://people.duke.edu/~hpgavin/gnuplot.html
 
 * Thanks to Cameron Padua for helping me figure out how to retrieve responses from the server for Collector.py using
-urllib2, pointing out that I need to be deleting trailing whitespace after splitting the html response, and mentioning
-the strip() method for extra whitespace.
+urllib2, and pointing out that I need to be deleting trailing whitespace after splitting the html response.
 
 * http://lowrank.net/gnuplot/datafile2-e.html
 
